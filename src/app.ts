@@ -1,6 +1,4 @@
-import dotenv from "dotenv";
-
-dotenv.config();
+import "./config.js";
 
 async function main () {
   console.log("Hello World!");
