@@ -1,12 +1,11 @@
 {
   "name": "minimal-nodejs-starter",
   "version": "1.0.0",
-  "main": "dist/app.js",
   "type": "module",
   "scripts": {
     "build": "tsc",
-    "start": "node dist/app.js",
-    "dev": "node --env-file=.env --watch -r ts-node/register src/index.ts",
+    "start": "node --experimental-specifier-resolution=node dist/app.js",
+    "dev": "node --experimental-specifier-resolution=node --loader ts-node/esm --watch ./src/app.ts",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
@@ -24,6 +23,9 @@
     "typescript": "^5.2.2"
   },
   "engines": {
-    "node": ">=20.6.0"
+    "node": "20.x"
+  },
+  "dependencies": {
+    "ts-node": "^10.9.2"
   }
 }

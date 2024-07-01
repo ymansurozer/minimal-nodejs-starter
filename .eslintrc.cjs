@@ -1,5 +1,6 @@
 module.exports = {
-  ignorePatterns: ["dist/"],
+  ignorePatterns: ["dist/", "tsconfig.json", "package.json", "package-lock.json"],
+  root: true,
   env: {
     browser: true,
     es2021: true,
@@ -48,6 +49,9 @@ module.exports = {
     "@typescript-eslint/no-non-null-assertion": "off",
     "@typescript-eslint/naming-convention": "off",
     "@typescript-eslint/no-floating-promises": "off",
+    "no-return-await": "off",
+    "@typescript-eslint/return-await": "off",
+
     indent: "off",
   },
 };
