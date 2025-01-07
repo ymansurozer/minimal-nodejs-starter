@@ -1,15 +1,27 @@
 {
-  // Disable the default formatter, use eslint instead
+  // Use typescript version from node_modules instead of VSCode built-in typescript version
+  "typescript.tsdk": "node_modules/typescript/lib",
+
+  // Enable the ESlint flat config support
+  "eslint.useFlatConfig": true,
+
+  // Disable the default formatter to use eslint instead in general
   "prettier.enable": false,
   "editor.formatOnSave": false,
 
+  // But enable formatter and auto fix specifically for Prisma
+  "[prisma]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "Prisma.prisma"
+  },
+
   // Enable general auto fix with eslint
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit", 
+    "source.fixAll.eslint": "explicit",
     "source.organizeImports": "never"
   },
 
-  // Silent the stylistic rules in you IDE, but still auto fix them
+  //   Silent the stylistic rules in you IDE, but still auto fix them
   "eslint.rules.customizations": [
     { "rule": "style/*", "severity": "off" },
     { "rule": "format/*", "severity": "off" },
@@ -32,6 +44,7 @@
     "markdown",
     "json",
     "jsonc",
-    "yaml"
-  ]
+    "yaml",
+    "prisma"
+  ],
 }

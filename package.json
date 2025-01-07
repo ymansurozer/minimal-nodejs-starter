@@ -4,8 +4,10 @@
   "type": "module",
   "scripts": {
     "build": "tsc",
-    "start": "node --experimental-specifier-resolution=node dist/app.js",
-    "dev": "node --experimental-specifier-resolution=node --loader ts-node/esm --watch ./src/app.ts",
+    "start": "node dist/src/index.js",
+    "dev:tsc": "tsc --watch --preserveWatchOutput",
+    "dev:node": "node --enable-source-maps --watch dist/src/index.js",
+    "dev": "pnpm run \"/dev:/\"",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
@@ -13,19 +15,14 @@
   "keywords": [],
   "author": "",
   "devDependencies": {
+    "@eslint/js": "^9.17.0",
     "@types/node": "^20.4.2",
-    "@typescript-eslint/eslint-plugin": "^6.7.4",
-    "eslint": "^8.50.0",
-    "eslint-config-standard-with-typescript": "^39.1.0",
-    "eslint-plugin-import": "^2.28.1",
-    "eslint-plugin-n": "^16.1.0",
-    "eslint-plugin-promise": "^6.1.1",
-    "typescript": "^5.2.2"
+    "eslint": "^9.17.0",
+    "globals": "^15.14.0",
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.19.1"
   },
   "engines": {
     "node": "20.x"
-  },
-  "dependencies": {
-    "ts-node": "^10.9.2"
   }
 }
